@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro para un evento</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-$END$
-</body>
-</html>
+<div class="form-image-row">
+    <!-- Columna para el formulario -->
+    <div class="form-column">
+        <h2>Registro para un evento</h2>
+        <form action="/configuracionJuego" method="post">
+            <label for="longitud">Longitud de la Palabra:</label>
+            <input type="number" id="longitud" name="longitud" required>
+
+            <label for="intentos">Intentos:</label>
+            <input type="number" id="intentos" name="intentos" required>
+
+            <label for="tema">Tema del Juego:</label>
+            <select id="tema" name="tema" required>
+                <option value = "animales"> animales </option>
+                <option value = "frutas"> frutas </option>
+                <option value = "paises"> paises </option>
+            <select/>
+
+
+            <input type="submit" value="Registrar">
+        </form>
+        <p th:if="${!error.isEmpty()}" th:text="${error}"></p>
+    </div>
+</div>
